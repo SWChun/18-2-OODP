@@ -12,7 +12,7 @@ public class VehicleAdaptor {
 		v.run();
 	}
 	public boolean getIsActivated() {
-		return this.activate;
+		return this.isActivated;
 	}
 	public void setIsActivated(boolean b) {
 		this.isActivated = b;

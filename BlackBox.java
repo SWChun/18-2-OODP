@@ -11,7 +11,7 @@ public class BlackBox {
 	private BlackBox() {
 	}
 
-	public static getBlackBox() {
+	public static BlackBox getBlackBox() {
 		if(b == null) {
 			b = new BlackBox();
 			return b;
@@ -21,26 +21,27 @@ public class BlackBox {
 	}
 	public void storeData(Vehicle v) {
 		functions.add(v.getName());
-		energyLevels.add(v.getEnergyLevel());
+		energyLevels.add(v.getEnergylevel());
 		temperatures.add(v.getTemperature());
 		humidities.add(v.getHumidity());
 	}
 	public void printData() {
-		System.out.Print("Function: ");
+		System.out.print("Function: ");
 		printWithArrow(functions);
-		System.out.Print("\nEnergyLevel: ");
+		System.out.print("\nEnergyLevel: ");
 		printWithArrow(energyLevels);
-		System.out.Print("\nTemperature: ");
+		System.out.print("\nTemperature: ");
 		printWithArrow(temperatures);
-		System.out.Print("\nHumidity: ");
+		System.out.print("\nHumidity: ");
 		printWithArrow(humidities);
+		System.out.println();
 	}
-	private void printWithArrow(ArrayList<T> al) {
-		for(int i = 0; i < al.length(); i++) {
+	private <T> void printWithArrow(ArrayList<T> al) {
+		for(int i = 0; i < al.size(); i++) {
 			if(i == 0)
-				System.out.Print(al[i] + "");
+				System.out.print(al.get(i) + "");
 			else 
-				System.out.Print("->" + l[i]);
+				System.out.print("->" + al.get(i));
 		}
 	}
 }

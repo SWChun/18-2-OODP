@@ -9,9 +9,8 @@ public class ControlPanel {
 		boolean isHalt = false;
 
 		do {
-			if(transformer.isActivated()){			
-				transformer.run();
-				BlackBox.getBlackBox().storeData(transformer.getVehicle());
+			if(transformer.getIsActivated()){			
+				transformer.run();				
 			}
 			System.out.println("Next Vehicle Action:");
 			System.out.println("(C)ar (P)lane (S)ubmarine (B)lackbox (H)alt");
@@ -33,11 +32,12 @@ public class ControlPanel {
 					transformer.setIsActivated(false);
 					BlackBox.getBlackBox().printData();
 					break;
-				case 'H'
+				case 'H':
 					isHalt = true;
 					break;
 				default:
-					System.out.println("Unrecognizable Command. Activating the previous mode.");
+					transformer.setIsActivated(false);
+					System.out.println("Unrecognizable Command");
 					break;
 			}
 		} while(!isHalt);
